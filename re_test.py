@@ -200,7 +200,7 @@ print(s)
 
 # ()：分组
 email = r"\w{3}@\w+(\.com|\.cn|\.org)"
-s = re.match(email, 'abc@jstao2000.com')
+s = re.match(email, 'abc@jstao.com')
 if s:
     print(s.group())
 else:
