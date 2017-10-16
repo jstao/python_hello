@@ -1,5 +1,5 @@
 import re
-
+import urllib.request
 #
 s = r't[io]p'
 result = re.findall(s, 'tip top twp teq tpp')
@@ -223,4 +223,17 @@ print(s)
 r1 = r'hello src=(.+) yes'
 s = re.findall(r1, str)
 print(s)
+
+def getHtml(url):
+    page = urllib.request.urlopen(url)
+    html = page.read()
+    return html
+
+def getImg(html):
+    reg = r'img class=\"BDE_Image\" src="(.*?\.jpg)" size'
+    imgre = re.compile(reg)
+    html = html.decode('utf-8')  # python3
+    imglist = re.findall(imgre, html)
+    return imglist
+
 
